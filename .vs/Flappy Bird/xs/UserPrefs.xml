@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{071E10C7-98A1-E18C-E3D1-1B0603687006}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Animation.cs">
+    <Files>
+      <File FileName="Assets/Scripts/CamaraJugador.cs" Line="29" Column="1" />
+      <File FileName="Assets/Scripts/Jugador.cs" Line="47" Column="14" />
+      <File FileName="Assets/Scripts/Animation.cs" Line="30" Column="2" />
+      <File FileName="Assets/Scripts/RectanguloAbajo.cs" Line="46" Column="1" />
+      <File FileName="Assets/Scripts/Score.cs" />
+      <File FileName="Assets/Scripts/Buttons.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Flappy Bird" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Animation.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e453fec7-1b34-4711-88dc-0125b516f504" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
