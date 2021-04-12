@@ -8,10 +8,14 @@ public class RectanguloAbajo : MonoBehaviour
     public GameObject RecArriba;
     private Score Score;
 
+    private GameObject[] tubos = new GameObject[3];
+    private GameObject tubo;
+
     // Start is called before the first frame update
     void Start()
     {
         Jugador = FindObjectOfType<Jugador>();
+        tubos = Jugador.getTubos();
     }
 
     // Update is called once per frame
@@ -22,18 +26,18 @@ public class RectanguloAbajo : MonoBehaviour
             float yRandom = Random.Range(-3, 3);
             float RandomEspacio = Random.Range(0, 3);
 
-            Instantiate(gameObject, new Vector2(Jugador.transform.position.x + 10, -7 + yRandom), transform.rotation);
+            tubo = Instantiate(gameObject, new Vector2(Jugador.transform.position.x + 10, -7 + yRandom), transform.rotation);
             Instantiate(RecArriba, new Vector2(Jugador.transform.position.x + 10, 7 + yRandom + RandomEspacio), transform.rotation);
             Destroy(gameObject);
-          //  FindObjectOfType<Score>().Contador();
+
+            addTubos(tubo);
         }
 
-
-        if (Jugador.transform.position.x > transform.position.x)
+        if (tubos[0] && Jugador.transform.position.x > tubos[0].transform.position.x)
         {
             FindObjectOfType<Score>().Contador();
+            shiftTubosArray();
         }
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -41,6 +45,26 @@ public class RectanguloAbajo : MonoBehaviour
         Jugador.Reinicio();
     }
 
+    private void shiftTubosArray()
+    {
+        tubos[0] = tubos[1];
+        tubos[1] = tubos[2];
+        tubos[2] = null;
+    }
 
-
+    private void addTubos(GameObject tubo)
+    {
+        if (!tubos[0])
+        {
+            tubos[0] = tubo;
+        }
+        else if (!tubos[1])
+        {
+            tubos[1] = tubo;
+        }
+        else
+        {
+            tubos[2] = tubo;
+        }
+    }
 }

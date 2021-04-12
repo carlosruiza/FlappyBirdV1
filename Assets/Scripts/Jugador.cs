@@ -13,25 +13,27 @@ public class Jugador : MonoBehaviour
     public GameObject RecAbajo;
     Animator anim;
 
+    private GameObject[] tubos = new GameObject[3];
+
 
     // Start is called before the first frame update
     void Start()
     {
         cuerpo = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        Construirnivel(); 
+        construirNivel(); 
     }
 
 
-    public void Construirnivel()
+    public void construirNivel()
     {
-        Instantiate(RecAbajo, new Vector3(10,-8), transform.rotation);
+        tubos[0] = Instantiate(RecAbajo, new Vector3(10,-8), transform.rotation);
         Instantiate(RecArriba, new Vector3(10, 8), transform.rotation);
 
-        Instantiate(RecAbajo, new Vector3(17, -10), transform.rotation);
+        tubos[1] = Instantiate(RecAbajo, new Vector3(17, -10), transform.rotation);
         Instantiate(RecArriba, new Vector3(17, 6), transform.rotation);
 
-        Instantiate(RecAbajo, new Vector3(24, -8), transform.rotation);
+        tubos[2] = Instantiate(RecAbajo, new Vector3(24, -8), transform.rotation);
         Instantiate(RecArriba, new Vector3(24, 10), transform.rotation);
     }
     // Update is called once per frame
@@ -43,8 +45,6 @@ public class Jugador : MonoBehaviour
             cuerpo.velocity = new Vector2(cuerpo.velocity.x, altura);
             anim.SetTrigger("Rotacion");
             StartCoroutine(StopMoving());
-
-             
         }
 
         if (transform.position.y > 13 || transform.position.y < -13)
@@ -58,8 +58,14 @@ public class Jugador : MonoBehaviour
        yield return new WaitForSeconds(0.5f);
         anim.SetTrigger("Estatico");
     }
+
     public void Reinicio()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public GameObject[] getTubos()
+    {
+        return tubos;
     }
 }
